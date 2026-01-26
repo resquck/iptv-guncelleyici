@@ -6,7 +6,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def main():
-    PROXY = "https://proxy.freecdn.workers.dev/?url="
+    PROXY = "https://api.allorigins.win/raw?url="
     START = "https://taraftariumizle.org"
     FILE_NAME = "DeaTHLesS-andro-panel.m3u"
     
@@ -119,3 +119,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
