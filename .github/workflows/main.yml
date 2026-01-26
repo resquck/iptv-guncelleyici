@@ -1,35 +1,28 @@
 name: IPTV Otomatik Guncelle
 
 on:
-  schedule:
-    - cron: '0 */6 * * *'
-  workflow_dispatch:
+  workflow_dispatch: # El ile çalıştırmak için
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Kodları Cek
+      - name: Kodlari Cek
         uses: actions/checkout@v3
+
+      - name: Klasor Yapisini Goruntule
+        run: ls -R # Hangi dosyaların nerede olduğunu siyah ekrana yazar
 
       - name: Python Kur
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: Kütüphaneleri Yukle
-        run: |
-          pip install requests beautifulsoup4 urllib3
+      - name: Kutuphaneleri Yukle
+        run: pip install requests beautifulsoup4 urllib3
 
       - name: Scriptleri Calistir
         run: |
-          python deathless-selcuk.py
-          python deathless-andro-panel.py
-
-      - name: Dosyaları Kaydet
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "IPTV Listesi Guncellendi" || exit 0
-          git push
+          # Dosya isimlerini burada ls çıktısına göre teyit edeceğiz
+          python deathless-selcuk.py || echo "Selcuk dosyasi bulunamadi"
+          python deathless-andro-panel.py || echo "Andro dosyasi bulunamadi"
