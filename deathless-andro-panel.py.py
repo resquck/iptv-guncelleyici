@@ -6,7 +6,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def main():
-    PROXY = "https://api.allorigins.win/raw?url="
+    PROXY = "https://corsproxy.io/?"
     START = "https://taraftariumizle.org"
     FILE_NAME = "DeaTHLesS-andro-panel.m3u"
     
@@ -119,4 +119,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
