@@ -1,5 +1,35 @@
-- name: Scriptleri Calistir
+name: IPTV Otomatik Guncelle
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodları Cek
+        uses: actions/checkout@v3
+
+      - name: Python Kur
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Kütüphaneleri Yukle
         run: |
-          ls -R # Mevcut dosyaları listeler (Hata tespiti için)
-          python deathless-selcuk.py || echo "Selcuk scripti hata verdi"
-          python deathless-andro-panel.py || echo "Andro scripti hata verdi"
+          pip install requests beautifulsoup4 urllib3
+
+      - name: Scriptleri Calistir
+        run: |
+          python deathless-selcuk.py
+          python deathless-andro-panel.py
+
+      - name: Dosyaları Kaydet
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "IPTV Listesi Guncellendi" || exit 0
+          git push
