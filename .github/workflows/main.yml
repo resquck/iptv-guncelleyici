@@ -27,4 +27,4 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add deathless-selcuk.m3u DeaTHLesS-andro-panel.m3u || echo "Dosyalar bulunamadı"
           git commit -m "IPTV Listesi Guncellendi: $(date)" || echo "Degisiklik yok"
-          git push origin main
+          git push origin master
