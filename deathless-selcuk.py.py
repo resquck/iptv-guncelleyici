@@ -12,7 +12,7 @@ HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 }
 TIMEOUT_VAL = 15
-PROXY_URL = "https://seep.eu.org/"
+PROXY_URL = https://api.allorigins.win/raw?url=
 OUTPUT_FILENAME = "deathless-selcuk.m3u"
 STATIC_LOGO = "https://i.hizliresim.com/8xzjgqv.jpg"
 SELCUK_REFERRER = "https://selcuksportshd1903.xyz"
@@ -137,4 +137,5 @@ def main():
         print(f"Hata: {e}")
 
 if __name__ == "__main__":
+
     main()
